@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { Disclosure } from "@headlessui/react";
 import { MailIcon, LocationMarkerIcon, PhoneIcon } from "@heroicons/react/outline";
 import { MenuIcon, XIcon, ChevronDownIcon } from "@heroicons/react/outline";
@@ -12,7 +12,6 @@ export default function Navbar() {
   const [activeNavLink, setActiveNavLink] = useState("Home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isTestingFacilitiesOpen, setIsTestingFacilitiesOpen] = useState(false);
-  const dropdownRef = useRef(null);
 
   const navigation = [
     { name: "Home", to: "/", current: activeNavLink === "Home" },
@@ -41,14 +40,13 @@ export default function Navbar() {
   const handleNavLinkClick = (name, to) => {
     setActiveNavLink(name);
     setIsMobileMenuOpen(false);
-    // Navigate to the specified path
-    window.location.href = to;
+    setIsTestingFacilitiesOpen(false); // Close the dropdown after clicking
   };
-  
-  // const handleNavLinkClick = (name, to) => {
-  //   setActiveNavLink(name);
-  //   setIsMobileMenuOpen(false);
-  // };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setIsTestingFacilitiesOpen(false); // Close the dropdown when opening/closing mobile menu
+  };
 
   const toggleTestingFacilities = () => {
     setIsTestingFacilitiesOpen(!isTestingFacilitiesOpen);
@@ -57,19 +55,6 @@ export default function Navbar() {
   const closeDropdown = () => {
     setIsTestingFacilitiesOpen(false);
   };
-
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsTestingFacilitiesOpen(false);
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
 
   return (
     <Disclosure as="nav" className="bg-slate-300 fixed left-0 right-0 top-0 z-50 shadow-lg">
@@ -107,10 +92,7 @@ export default function Navbar() {
                   <Link
                     key={item.name}
                     to={item.to}
-                    onClick={() => {
-                      handleNavLinkClick(item.name, item.to);
-                      closeDropdown(); // Close the dropdown after clicking
-                    }}
+                    onClick={() => handleNavLinkClick(item.name, item.to)}
                     className={classNames(
                       item.current ? "text-red-600 underline" : "text-black-600 hover:text-red-600 hover:underline",
                       "px-2 py-2 font-serif text-sm"
@@ -121,7 +103,7 @@ export default function Navbar() {
                   </Link>
                 ))}
                 {/* Testing Facilities Dropdown - Desktop Size */}
-                <div ref={dropdownRef} className="relative inline-block text-left">
+                <div className="relative inline-block text-left">
                   <button
                     onClick={toggleTestingFacilities}
                     className="text-black-600 hover:text-red-600 hover:underline text-sm font-serif flex items-center"
@@ -161,7 +143,7 @@ export default function Navbar() {
               {/* Mobile Menu Button */}
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-4 sm:pr-0">
                 <Disclosure.Button className="sm:hidden relative inline-flex items-center justify-center rounded-md p-2 text-indigo-600 hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600"
-                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  onClick={toggleMobileMenu}
                 >
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
@@ -175,17 +157,14 @@ export default function Navbar() {
             </div>
           </div>
           {/* Mobile Menu Content */}
-          <Disclosure.Panel className="sm:hidden">
+          {isMobileMenuOpen && (
             <div className="space-y-1 px-2 pb-3 pt-2">
               <div className="flex flex-col items-center w-full">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
                     to={item.to}
-                    onClick={() => {
-                      handleNavLinkClick(item.name, item.to);
-                      closeDropdown(); // Close the dropdown after clicking
-                    }}
+                    onClick={() => handleNavLinkClick(item.name, item.to)}
                     className={classNames(
                       item.current ? "text-blue-500 underline" : "text-black-600 hover:text-indigo-400 hover:underline",
                       "block px-1 py-2 text-lg font-medium"
@@ -196,7 +175,7 @@ export default function Navbar() {
                   </Link>
                 ))}
                 {/* Dropdown for Testing Facilities (Mobile) */}
-                <div ref={dropdownRef} className="relative inline-block text-left">
+                <div className="relative inline-block text-left">
                   <button
                     onClick={toggleTestingFacilities}
                     className="text-black-600 hover:text-indigo-400 hover:underline px-3 py-3 text-lg font-medium flex items-center"
@@ -228,7 +207,7 @@ export default function Navbar() {
                 </div>
               </div>
             </div>
-          </Disclosure.Panel>
+          )}
         </>
       )}
     </Disclosure>
