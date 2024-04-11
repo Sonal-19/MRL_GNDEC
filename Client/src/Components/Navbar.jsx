@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Disclosure } from "@headlessui/react";
 import { MailIcon, LocationMarkerIcon, PhoneIcon } from "@heroicons/react/outline";
 import { MenuIcon, XIcon, ChevronDownIcon } from "@heroicons/react/outline";
@@ -12,6 +12,7 @@ export default function Navbar() {
   const [activeNavLink, setActiveNavLink] = useState("Home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isTestingFacilitiesOpen, setIsTestingFacilitiesOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const navigation = [
     { name: "Home", to: "/", current: activeNavLink === "Home" },
@@ -55,6 +56,19 @@ export default function Navbar() {
   const closeDropdown = () => {
     setIsTestingFacilitiesOpen(false);
   };
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsTestingFacilitiesOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <Disclosure as="nav" className="bg-slate-300 fixed left-0 right-0 top-0 z-50 shadow-lg">
@@ -103,7 +117,7 @@ export default function Navbar() {
                   </Link>
                 ))}
                 {/* Testing Facilities Dropdown - Desktop Size */}
-                <div className="relative inline-block text-left">
+                <div ref={dropdownRef} className="relative inline-block text-left">
                   <button
                     onClick={toggleTestingFacilities}
                     className="text-black-600 hover:text-red-600 hover:underline text-sm font-serif flex items-center"
@@ -175,7 +189,7 @@ export default function Navbar() {
                   </Link>
                 ))}
                 {/* Dropdown for Testing Facilities (Mobile) */}
-                <div className="relative inline-block text-left">
+                <div ref={dropdownRef} className="relative inline-block text-left">
                   <button
                     onClick={toggleTestingFacilities}
                     className="text-black-600 hover:text-indigo-400 hover:underline px-3 py-3 text-lg font-medium flex items-center"
