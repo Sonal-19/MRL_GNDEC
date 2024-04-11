@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Disclosure } from "@headlessui/react";
 import { MailIcon, LocationMarkerIcon, PhoneIcon } from "@heroicons/react/outline";
 import { MenuIcon, XIcon, ChevronDownIcon } from "@heroicons/react/outline";
@@ -10,14 +10,16 @@ function classNames(...classes) {
 
 export default function Navbar() {
   const [activeNavLink, setActiveNavLink] = useState("Home");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isTestingFacilitiesOpen, setIsTestingFacilitiesOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const navigation = [
-    { name: "Home", href: "/", current: activeNavLink === "Home" },
-    { name: "About Us", href: "/about", current: activeNavLink === "About Us" },
-    { name: "Services", href: "/testing", current: activeNavLink === "Services" },
-    { name: "News & Events", href: "/news-events", current: activeNavLink === "News & Events" },
-    { name: "Contact Us", href: "/contact", current: activeNavLink === "Contact Us" },
+    { name: "Home", to: "/", current: activeNavLink === "Home" },
+    { name: "About Us", to: "/about", current: activeNavLink === "About Us" },
+    { name: "Services", to: "/testing", current: activeNavLink === "Services" },
+    { name: "News & Events", to: "/news-events", current: activeNavLink === "News & Events" },
+    { name: "Contact Us", to: "/contact", current: activeNavLink === "Contact Us" },
   ];
 
   const testingFacilities = [
@@ -36,13 +38,37 @@ export default function Navbar() {
     { name: "Vapour Smoothening", path: "/vapour-smoothening" },
   ];
 
-  const handleNavLinkClick = (name) => {
+  // const handleNavLinkClick = (name, to) => {
+  //   setActiveNavLink(name);
+  //   setIsMobileMenuOpen(false);
+  //   // Navigate to the specified path
+  //   window.location.href = to;
+  // };
+  const handleNavLinkClick = (name, to) => {
     setActiveNavLink(name);
+    setIsMobileMenuOpen(false);
   };
 
   const toggleTestingFacilities = () => {
     setIsTestingFacilitiesOpen(!isTestingFacilitiesOpen);
   };
+
+  const closeDropdown = () => {
+    setIsTestingFacilitiesOpen(false);
+  };
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsTestingFacilitiesOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <Disclosure as="nav" className="bg-slate-300 fixed left-0 right-0 top-0 z-50 shadow-lg">
@@ -53,7 +79,7 @@ export default function Navbar() {
             <div className="hidden sm:flex justify-center items-center absolute top-0 left-1/2 transform -translate-x-1/2 pr-3 py-1 text-xs text-red-900">
               <div className="flex items-center me-2">
                 <MailIcon className="h-4 w-4 mr-1" />
-                <p className="mr-3">mrlabgndec@gmail.com</p>
+                <p className="mr-3">mrlab@gndec.ac.in</p>
               </div>
               <div className="flex items-center me-2">
                 <LocationMarkerIcon className="h-4 w-4 mr-1" />
@@ -67,20 +93,23 @@ export default function Navbar() {
             {/* Logo */}
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex flex-1 items-center">
-                <a href="/" className="mr-2">
+                <Link to="/" className="mr-2">
                   <img className="h-14 w-auto lg:me-0 lg:h-12 lg:w-auto" src="/lg3.png" alt="Your Company" />
-                </a>
-                <a href="/" className="mr-2">
+                </Link>
+                <Link to="/" className="mr-2">
                   <img className="h-14 w-auto lg:me-4 lg:h-12 lg:w-auto" src="/mrl3.png" alt="Your Company" />
-                </a>
+                </Link>
               </div>
               {/* Navigation */}
               <div className="hidden sm:flex flex-grow justify-center font-medium text-black items-center space-x-3 lg:mt-2 lg:ml-2">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
-                    to={item.href}
-                    onClick={() => handleNavLinkClick(item.name)}
+                    to={item.to}
+                    onClick={() => {
+                      handleNavLinkClick(item.name, item.to);
+                      closeDropdown(); // Close the dropdown after clicking
+                    }}
                     className={classNames(
                       item.current ? "text-red-600 underline" : "text-black-600 hover:text-red-600 hover:underline",
                       "px-2 py-2 font-serif text-sm"
@@ -91,7 +120,7 @@ export default function Navbar() {
                   </Link>
                 ))}
                 {/* Testing Facilities Dropdown - Desktop Size */}
-                <div className="relative inline-block text-left">
+                <div ref={dropdownRef} className="relative inline-block text-left">
                   <button
                     onClick={toggleTestingFacilities}
                     className="text-black-600 hover:text-red-600 hover:underline text-sm font-serif flex items-center"
@@ -106,6 +135,10 @@ export default function Navbar() {
                           <Link
                             key={index}
                             to={facility.path}
+                            onClick={() => {
+                              closeDropdown(); // Close the dropdown after clicking
+                              handleNavLinkClick(facility.name, facility.path);
+                            }}
                             className={classNames(
                               "block px-2 py-1 text-sm border-b border-gray-200 hover:bg-gray-100"
                             )}
@@ -126,7 +159,9 @@ export default function Navbar() {
               </div>
               {/* Mobile Menu Button */}
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-4 sm:pr-0">
-                <Disclosure.Button className="sm:hidden relative inline-flex items-center justify-center rounded-md p-2 text-indigo-600 hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600">
+                <Disclosure.Button className="sm:hidden relative inline-flex items-center justify-center rounded-md p-2 text-indigo-600 hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                >
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   {open ? (
@@ -145,8 +180,11 @@ export default function Navbar() {
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
-                    to={item.href}
-                    onClick={() => handleNavLinkClick(item.name)}
+                    to={item.to}
+                    onClick={() => {
+                      handleNavLinkClick(item.name, item.to);
+                      closeDropdown(); // Close the dropdown after clicking
+                    }}
                     className={classNames(
                       item.current ? "text-blue-500 underline" : "text-black-600 hover:text-indigo-400 hover:underline",
                       "block px-1 py-2 text-lg font-medium"
@@ -157,7 +195,7 @@ export default function Navbar() {
                   </Link>
                 ))}
                 {/* Dropdown for Testing Facilities (Mobile) */}
-                <div className="relative inline-block text-left">
+                <div ref={dropdownRef} className="relative inline-block text-left">
                   <button
                     onClick={toggleTestingFacilities}
                     className="text-black-600 hover:text-indigo-400 hover:underline px-3 py-3 text-lg font-medium flex items-center"
@@ -172,6 +210,10 @@ export default function Navbar() {
                           <Link
                             key={index}
                             to={facility.path}
+                            onClick={() => {
+                              closeDropdown(); // Close the dropdown after clicking
+                              handleNavLinkClick(facility.name, facility.path);
+                            }}
                             className={classNames(
                               "block px-4 py-2 text-sm border-b border-gray-200 hover:bg-gray-100"
                             )}

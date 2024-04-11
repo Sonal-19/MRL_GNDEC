@@ -38,16 +38,17 @@ export default function Navbar() {
     { name: "Vapour Smoothening", path: "/vapour-smoothening" },
   ];
 
-  // const handleNavLinkClick = (name, to) => {
-  //   setActiveNavLink(name);
-  //   setIsMobileMenuOpen(false);
-  //   // Navigate to the specified path
-  //   window.location.href = to;
-  // };
   const handleNavLinkClick = (name, to) => {
     setActiveNavLink(name);
     setIsMobileMenuOpen(false);
+    // Navigate to the specified path
+    window.location.href = to;
   };
+  
+  // const handleNavLinkClick = (name, to) => {
+  //   setActiveNavLink(name);
+  //   setIsMobileMenuOpen(false);
+  // };
 
   const toggleTestingFacilities = () => {
     setIsTestingFacilitiesOpen(!isTestingFacilitiesOpen);
