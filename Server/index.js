@@ -22,7 +22,6 @@ app.get("/",(req, res)=>{
   res.send("hello world")
 })
 
-
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`Manufactuing Research Laboratory Server is running at port ${PORT}`);
