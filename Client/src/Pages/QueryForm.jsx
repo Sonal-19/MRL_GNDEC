@@ -207,7 +207,7 @@ const QueryForm = () => {
       >
         <div className="text-center justify-center mt-5">
           <h1 className="text-3xl md:text-5xl lg:text-7xl text-black font-medium mt-9">
-            Query Form ?
+            Quotation Form ?
           </h1>
         </div>
       </div>

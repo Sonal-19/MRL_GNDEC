@@ -11,6 +11,7 @@ function Contact() {
 
   const formRef = useRef(null); // Reference to the form element
 
+  //const baseUrl = "https://mrlgndec-289c.vercel.app";
   const baseUrl = "https://mrlgndec-289c.vercel.app";
 
   const sendEmail = async () => {
@@ -77,16 +78,16 @@ function Contact() {
 
           <span className="text-md opacity-80">
             <i className="fa-solid fa-phone mb-2"></i>&nbsp;Phone No. : 
-            +919914400353, +919914330555
+            +919914400353
           </span>
           <span className="text-md opacity-80">
             <i className="fa-solid fa-envelope mb-2"></i>&nbsp;Email :
-            mrlab@gndec.ac.in (official)
+            mrlab@gndec.ac.in 
           </span>
-          <span className="text-md opacity-80">
+          {/* <span className="text-md opacity-80">
             <i className="fa-solid fa-envelope mb-2"></i>&nbsp;Email :
             mrlabgndec@gmail.com
-          </span>
+          </span> */}
           <span className="text-md opacity-80">
             <i className="fa-solid fa-phone mb-2"></i>&nbsp;Testing and Consultancy:
             01615064709
