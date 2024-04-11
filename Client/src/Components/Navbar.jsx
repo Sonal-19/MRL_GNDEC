@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Disclosure } from "@headlessui/react";
 import { MailIcon, LocationMarkerIcon, PhoneIcon } from "@heroicons/react/outline";
 import { MenuIcon, XIcon, ChevronDownIcon } from "@heroicons/react/outline";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -15,11 +15,11 @@ export default function Navbar() {
   const dropdownRef = useRef(null);
 
   const navigation = [
-    { name: "Home", href: "/", current: activeNavLink === "Home" },
-    { name: "About Us", href: "/about", current: activeNavLink === "About Us" },
-    { name: "Services", href: "/testing", current: activeNavLink === "Services" },
-    { name: "News & Events", href: "/news-events", current: activeNavLink === "News & Events" },
-    { name: "Contact Us", href: "/contact", current: activeNavLink === "Contact Us" },
+    { name: "Home", path: "/", current: activeNavLink === "Home" },
+    { name: "About Us", path: "/about", current: activeNavLink === "About Us" },
+    { name: "Services", path: "/testing", current: activeNavLink === "Services" },
+    { name: "News & Events", path: "/news-events", current: activeNavLink === "News & Events" },
+    { name: "Contact Us", path: "/contact", current: activeNavLink === "Contact Us" },
   ];
 
   const testingFacilities = [
@@ -98,21 +98,22 @@ export default function Navbar() {
               {/* Navigation */}
               <div className="hidden sm:flex flex-grow justify-center font-medium text-black items-center space-x-3 lg:mt-2 lg:ml-2">
                 {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    onClick={() => {
-                      handleNavLinkClick(item.name);
-                      closeDropdown(); // Close the dropdown after clicking
-                    }}
-                    className={classNames(
-                      item.current ? "text-red-600 underline" : "text-black-600 hover:text-red-600 hover:underline",
-                      "px-2 py-2 font-serif text-sm"
-                    )}
-                    aria-current={item.current ? "page" : undefined}
-                  >
-                    {item.name}
-                  </Link>
+                  <NavLink
+                  key={item.name}
+                  to={item.path}
+                  onClick={() => {
+                    handleNavLinkClick(item.name);
+                    closeDropdown(); // Close the dropdown after clicking
+                  }}
+                  className={classNames(
+                    item.current ? "text-red-600 underline" : "text-black-600 hover:text-red-600 hover:underline",
+                    "px-2 py-2 font-serif text-sm"
+                  )}
+                  activeClassName="text-red-600 underline"
+                  exact={true}
+                >
+                  {item.name}
+                  </NavLink>
                 ))}
                 {/* Testing Facilities Dropdown - Desktop Size */}
                 <div ref={dropdownRef} className="relative inline-block text-left">
@@ -175,7 +176,7 @@ export default function Navbar() {
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
-                    to={item.href}
+                    to={item.path}
                     onClick={() => {
                       handleNavLinkClick(item.name);
                       closeDropdown(); // Close the dropdown after clicking
@@ -184,7 +185,9 @@ export default function Navbar() {
                       item.current ? "text-blue-500 underline" : "text-black-600 hover:text-indigo-400 hover:underline",
                       "block px-1 py-2 text-lg font-medium"
                     )}
-                    aria-current={item.current ? "page" : undefined}
+                    // aria-current={item.current ? "page" : undefined}
+                    activeClassName="text-red-600 underline"
+                    exact={true}
                   >
                     {item.name}
                   </Link>
