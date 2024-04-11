@@ -2,7 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+// import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from "./Pages/Home.jsx";
 import About from "./Pages/About.jsx"; 
 import Navbar from "./Components/Navbar.jsx";
@@ -26,35 +28,32 @@ import VapourSmoothening from "./Components/Testings/VapourSmoothening.jsx";
 import QueryForm from "./Pages/QueryForm.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-      <BrowserRouter>
-      <Navbar/>
-      <Routes>
-        <Route>
-          <Route path="/" element={<App></App>}></Route>
-          <Route index element= {<Home/>}/>
-          <Route path="/about" element={<About />} />
-          <Route path='/testing' element={<TestingFacilities/>} />
-          <Route path="/news-events" element={<NewsEvents/>} />
-          <Route path="/contact" element={<Contact/>} />
-          <Route path="/dsc" element={<DSC/>} />
-          <Route path="/ftir" element={<FTIR/>} />
-          <Route path="/abrasive-cutting-machine" element={<AbrasiveCuttingMachine/>} />
-          <Route path="/cryo-mill" element={<CryoMill/>} />
-          <Route path="/double-disc-polishing-machine" element={<DoubleDiscPolishingMachine/>} />
-          <Route path="/injection-modeling-machine" element={<InjectionModelingMachine/>} />
-          <Route path="/melt-flow-tester" element={<MeltFlowTester/>} />
-          <Route path="/micro-vector-hardness-tester" element={<MicroVickerHardnessTester/>} />
-          <Route path="/pinter" element={<Printer/>} />
-          <Route path="/tribometer" element={<Tribometer/>} />
-          <Route path="/twin-screw-extruder" element={<TwinScrewExtruder/>} />
-          <Route path="/universal-tensil-tester" element={<UniversalTensilTester/>} />
-          <Route path="/vapour-smoothening" element={<VapourSmoothening/>} />
-          <Route path="/queryform" element={<QueryForm/>} />
-          
-        </Route>
-      </Routes>
-      </BrowserRouter>
-      <Footer/>
-  </React.StrictMode>
+<React.StrictMode>
+  <BrowserRouter>
+    <Navbar />
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/testing" element={<TestingFacilities />} />
+      <Route path="/news-events" element={<NewsEvents />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/dsc" element={<DSC />} />
+      <Route path="/ftir" element={<FTIR />} />
+      <Route path="/abrasive-cutting-machine" element={<AbrasiveCuttingMachine />} />
+      <Route path="/cryo-mill" element={<CryoMill />} />
+      <Route path="/double-disc-polishing-machine" element={<DoubleDiscPolishingMachine />} />
+      <Route path="/injection-modeling-machine" element={<InjectionModelingMachine />} />
+      <Route path="/melt-flow-tester" element={<MeltFlowTester />} />
+      <Route path="/micro-vector-hardness-tester" element={<MicroVickerHardnessTester />} />
+      <Route path="/printer" element={<Printer />} />
+      <Route path="/tribometer" element={<Tribometer />} />
+      <Route path="/twin-screw-extruder" element={<TwinScrewExtruder />} />
+      <Route path="/universal-tensil-tester" element={<UniversalTensilTester />} />
+      <Route path="/vapour-smoothening" element={<VapourSmoothening />} />
+      <Route path="/queryform" element={<QueryForm />} />
+      <Route index element={<Home />} />
+    </Routes>
+    <Footer />
+  </BrowserRouter>
+</React.StrictMode>
 );

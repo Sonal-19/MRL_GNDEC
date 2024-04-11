@@ -15,11 +15,11 @@ export default function Navbar() {
   const dropdownRef = useRef(null);
 
   const navigation = [
-    { name: "Home", href: "/", current: activeNavLink === "Home" },
-    { name: "About Us", href: "/about", current: activeNavLink === "About Us" },
-    { name: "Services", href: "/testing", current: activeNavLink === "Services" },
-    { name: "News & Events", href: "/news-events", current: activeNavLink === "News & Events" },
-    { name: "Contact Us", href: "/contact", current: activeNavLink === "Contact Us" },
+    { name: "Home", to: "/", current: activeNavLink === "Home" },
+    { name: "About Us", to: "/about", current: activeNavLink === "About Us" },
+    { name: "Services", to: "/testing", current: activeNavLink === "Services" },
+    { name: "News & Events", to: "/news-events", current: activeNavLink === "News & Events" },
+    { name: "Contact Us", to: "/contact", current: activeNavLink === "Contact Us" },
   ];
 
   const testingFacilities = [
@@ -38,10 +38,15 @@ export default function Navbar() {
     { name: "Vapour Smoothening", path: "/vapour-smoothening" },
   ];
 
-  const handleNavLinkClick = (name) => {
+  // const handleNavLinkClick = (name, to) => {
+  //   setActiveNavLink(name);
+  //   setIsMobileMenuOpen(false);
+  //   // Navigate to the specified path
+  //   window.location.href = to;
+  // };
+  const handleNavLinkClick = (name, to) => {
     setActiveNavLink(name);
     setIsMobileMenuOpen(false);
-    window.location.href = href;
   };
 
   const toggleTestingFacilities = () => {
@@ -88,21 +93,21 @@ export default function Navbar() {
             {/* Logo */}
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex flex-1 items-center">
-                <a href="/" className="mr-2">
+                <Link to="/" className="mr-2">
                   <img className="h-14 w-auto lg:me-0 lg:h-12 lg:w-auto" src="/lg3.png" alt="Your Company" />
-                </a>
-                <a href="/" className="mr-2">
+                </Link>
+                <Link to="/" className="mr-2">
                   <img className="h-14 w-auto lg:me-4 lg:h-12 lg:w-auto" src="/mrl3.png" alt="Your Company" />
-                </a>
+                </Link>
               </div>
               {/* Navigation */}
               <div className="hidden sm:flex flex-grow justify-center font-medium text-black items-center space-x-3 lg:mt-2 lg:ml-2">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
-                    to={item.href}
+                    to={item.to}
                     onClick={() => {
-                      handleNavLinkClick(item.name);
+                      handleNavLinkClick(item.name, item.to);
                       closeDropdown(); // Close the dropdown after clicking
                     }}
                     className={classNames(
@@ -132,7 +137,7 @@ export default function Navbar() {
                             to={facility.path}
                             onClick={() => {
                               closeDropdown(); // Close the dropdown after clicking
-                              handleNavLinkClick(facility.name);
+                              handleNavLinkClick(facility.name, facility.path);
                             }}
                             className={classNames(
                               "block px-2 py-1 text-sm border-b border-gray-200 hover:bg-gray-100"
@@ -155,7 +160,7 @@ export default function Navbar() {
               {/* Mobile Menu Button */}
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-4 sm:pr-0">
                 <Disclosure.Button className="sm:hidden relative inline-flex items-center justify-center rounded-md p-2 text-indigo-600 hover:bg-indigo-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600"
-                  onClick={()=> setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
@@ -175,9 +180,9 @@ export default function Navbar() {
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
-                    to={item.href}
+                    to={item.to}
                     onClick={() => {
-                      handleNavLinkClick(item.name);
+                      handleNavLinkClick(item.name, item.to);
                       closeDropdown(); // Close the dropdown after clicking
                     }}
                     className={classNames(
@@ -207,7 +212,7 @@ export default function Navbar() {
                             to={facility.path}
                             onClick={() => {
                               closeDropdown(); // Close the dropdown after clicking
-                              handleNavLinkClick(facility.name);
+                              handleNavLinkClick(facility.name, facility.path);
                             }}
                             className={classNames(
                               "block px-4 py-2 text-sm border-b border-gray-200 hover:bg-gray-100"
