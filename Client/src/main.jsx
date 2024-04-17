@@ -26,6 +26,18 @@ import TwinScrewExtruder from "./Components/Testings/TwinScrewExtruder.jsx";
 import UniversalTensilTester from "./Components/Testings/UniversalTensilTester.jsx";
 import VapourSmoothening from "./Components/Testings/VapourSmoothening.jsx";
 import QueryForm from "./Pages/QueryForm.jsx";
+import AirJetErosionTester from "./Components/Testings/AirJetErosionTester.jsx";
+import DigitalMicrometer from "./Components/Testings/DigitalMicrometer.jsx";
+import DigitalVernierCaliper from "./Components/Testings/DigitalVernierCaliper.jsx";
+import FLIRThermometer from "./Components/Testings/FLIRThermometer.jsx";
+import HotAirOven from "./Components/Testings/HotAirOven.jsx";
+import MetallographicHotMountingPress from "./Components/Testings/MetallographicHotMountingPress.jsx";
+import MetallurgicalSampleSaw from "./Components/Testings/MetallurgicalSampleSaw.jsx";
+import PedestalGrinder from "./Components/Testings/PedestalGrinder.jsx";
+import SieveShaker from "./Components/Testings/SieveShaker.jsx";
+import ToolMakerMcroscope from "./Components/Testings/ToolMakerMcroscope.jsx";
+import UniversalMillingMachine from "./Components/Testings/UniversalMillingMachine.jsx";
+import VibratoryFinishingMachine from "./Components/Testings/VibratoryFinishingMachine.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 <React.StrictMode>
@@ -50,6 +62,18 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/twin-screw-extruder" element={<TwinScrewExtruder />} />
       <Route path="/universal-tensil-tester" element={<UniversalTensilTester />} />
       <Route path="/vapour-smoothening" element={<VapourSmoothening />} />
+      <Route path="/air-jet-erosion-tester" element={<AirJetErosionTester />} />
+      <Route path="/digital-micrometer" element={<DigitalMicrometer />} />
+      <Route path="/digital-vernier-caliper" element={<DigitalVernierCaliper />} />
+      <Route path="/flir-thermometer" element={<FLIRThermometer />} />
+      <Route path="/hot-air-oven" element={<HotAirOven />} />
+      <Route path="/metallographic-hot-mounting-press" element={<MetallographicHotMountingPress />} />
+      <Route path="/metallurgical-sample-saw" element={<MetallurgicalSampleSaw />} />
+      <Route path="/pedestal-grinder" element={<PedestalGrinder/>} />
+      <Route path="/sieve-shaker" element={<SieveShaker />} />
+      <Route path="/tool-maker-mcroscope" element={<ToolMakerMcroscope />} />
+      <Route path="/universal-milling-machine" element={<UniversalMillingMachine />} />
+      <Route path="/vibratory-finishing-machine" element={<VibratoryFinishingMachine />} />
       <Route path="/queryform" element={<QueryForm />} />
       <Route index element={<Home />} />
     </Routes>

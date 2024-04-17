@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-export default function DSC() {
+function VibratoryFinishingMachine() {
   return (
     <>
       <div
@@ -14,7 +14,7 @@ export default function DSC() {
       >
         <div className="text-center mt-5">
           <h1 className="text-3xl md:text-5xl lg:text-7xl text-white mt-16 font-medium mb-0">
-            Differential Scanning Calorimetry (DSC)
+            Vibratory Finishing Machine
           </h1>
         </div>
       </div>
@@ -22,7 +22,7 @@ export default function DSC() {
       <div className="w-full flex flex-col items-center" id="about-page">
         {/* <!-- Container for image --> */}
         <div className="flex items-center justify-center mt-8">
-          <img src="/dsc.jpg" alt="MRLogo" className="max-w-full h-auto" />
+          <img src="/VibratoryFinishing.jpg" alt="MRLogo" className="max-w-full h-auto" />
         </div>
 
         {/* <!-- Content section --> */}
@@ -30,17 +30,14 @@ export default function DSC() {
           {/* <!-- Heading --> */}
           <div className="lg:mr-4 py-2 lg:py-0">
             <h4 className="text-2xl md:text-3xl lg:text-4xl text-red-600 mb-8 mt-4 lg:mt-0 font-medium text-center">
-              Differential Scanning Calorimetry (DSC)
+                Vibratory Finishing Machine
             </h4>
           </div>
 
           {/* <!-- Paragraph --> */}
           <div className="mt-4 text-center lg:mt-0">
             <p className="text-justify font-medium mx-16 mb-4 lg:mb-16">
-              Differential scanning calorimetry (DSC) is the most frequently
-              used thermal analysis technique. DSC measures enthalpy changes in
-              samples due to changes in their physical and chemical properties
-              as a function of temperature or time.
+            It is used for drying and finishing different industrial materials and machinery parts.
             </p>
           </div>
 
@@ -64,39 +61,31 @@ export default function DSC() {
                 <tbody>
                   <tr>
                     <td className="border border-gray-400 px-4 py-2">Model</td>
-                    <td className="border border-gray-400 px-4 py-2">STARE 3 System DSC 3</td>
+                    <td className="border border-gray-400 px-4 py-2">TVBP 120 STD PO</td>
                   </tr>
                   <tr>
-                    <td className="border border-gray-400 px-4 py-2">Temperature range</td>
-                    <td className="border border-gray-400 px-4 py-2">-150 to 700 °C</td>
+                    <td className="border border-gray-400 px-4 py-2">Automation Grade</td>
+                    <td className="border border-gray-400 px-4 py-2">Semi-Automatic</td>
                   </tr>
                   <tr>
-                    <td className="border border-gray-400 px-4 py-2">Sensor</td>
-                    <td className="border border-gray-400 px-4 py-2">FRS 5+ with 56 thermocouples or HSS 8+ with 120 thermocouples</td>
+                    <td className="border border-gray-400 px-4 py-2">Material</td>
+                    <td className="border border-gray-400 px-4 py-2">Mild Steel</td>
                   </tr>
                   <tr>
-                    <td className="border border-gray-400 px-4 py-2">Heating Rate</td>
-                    <td className="border border-gray-400 px-4 py-2">0.02 to 300 K/min</td>
+                    <td className="border border-gray-400 px-4 py-2">Capacity</td>
+                    <td className="border border-gray-400 px-4 py-2">200 kg/hr</td>
                   </tr>
                   <tr>
-                    <td className="border border-gray-400 px-4 py-2">TAWN Resolution (FRS /HSS)</td>
-                    <td className="border border-gray-400 px-4 py-2">0.12/0.2</td>
+                    <td className="border border-gray-400 px-4 py-2">Design</td>
+                    <td className="border border-gray-400 px-4 py-2">Standard</td>
                   </tr>
                   <tr>
-                    <td className="border border-gray-400 px-4 py-2">TAWN Sensitivity (FRS /HSS)</td>
-                    <td className="border border-gray-400 px-4 py-2">11.9/56</td>
+                    <td className="border border-gray-400 px-4 py-2">Power</td>
+                    <td className="border border-gray-400 px-4 py-2">5 HP</td>
                   </tr>
                   <tr>
-                    <td className="border border-gray-400 px-4 py-2">Indium response ratio (FRS sensor)</td>
-                    <td className="border border-gray-400 px-4 py-2">&gt;155 mW/°C</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-400 px-4 py-2">Material Number(s)</td>
-                    <td className="border border-gray-400 px-4 py-2">30139229</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-400 px-4 py-2">Trade Name</td>
-                    <td className="border border-gray-400 px-4 py-2">DSC</td>
+                    <td className="border border-gray-400 px-4 py-2">Voltage</td>
+                    <td className="border border-gray-400 px-4 py-2">220 V</td>
                   </tr>
                 </tbody>
               </table>
@@ -105,5 +94,7 @@ export default function DSC() {
         </div>
       </div>
     </>
-  );
+  )
 }
+
+export default VibratoryFinishingMachine

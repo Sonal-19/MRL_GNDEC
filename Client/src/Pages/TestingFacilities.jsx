@@ -211,9 +211,9 @@ const TestingFacilities = () => {
                   materials in manufacturing processes.
                 </p>
                 
-                {/* <Link className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
-                to="/cryo-mill"
-                >Read More</Link> */}
+                <Link className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
+                to="/universal-milling-machine" 
+                >Read More</Link>
               </div>
             </div>
 
@@ -355,6 +355,8 @@ const TestingFacilities = () => {
               </div>
             </div>
 
+            {/* ////// */}
+
             {/* <div className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
               <div className="h-96 w-72">
                 <img
@@ -392,8 +394,8 @@ const TestingFacilities = () => {
                   Vapour Smoothening
                 </h1>
                 <p className="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-               With little labor and a short processing cycle, the Finishing Touch™ Smoothing Station yields prototypes, tools and end-use
-                parts that have finishes that are ready for paint, plating or production.
+                 With little labor and a short processing cycle, the Finishing Touch™ Smoothing Station yields prototypes, tools and end-use
+                 parts that have finishes that are ready for paint, plating or production.
                 </p>
                 <Link className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
                 to="/vapour-smoothening"
@@ -415,12 +417,12 @@ const TestingFacilities = () => {
                   Air Jet Erosion Tester
                 </h1>
                 <p className="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  Air Jet Erosion Tester: Evaluates material erosion resistance
-                  under high-velocity air jet conditions.
+                  Air Jet Erosion Tester is a unique and a feature rich erosion tester that is capable of testing
+                  bulk materials and coatings under erosion.
                 </p>
-                {/* <Link className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
-                to="/vapour-smoothening"
-                >Read More</Link> */}
+                <Link className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
+                to="/air-jet-erosion-tester"
+                >Read More</Link>
               </div>
             </div>
 
@@ -441,9 +443,9 @@ const TestingFacilities = () => {
                   Metallurgical Sample Saw: Cuts metallurgical samples with
                   precision for analysis.
                 </p>
-                {/* <Link className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
-                to="/vapour-smoothening"
-                >Read More</Link> */}
+                <Link className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
+                to="/metallurgical-sample-saw"
+                >Read More</Link>
               </div>
             </div>
 
@@ -579,9 +581,9 @@ const TestingFacilities = () => {
                   Hot Air Oven: Provides controlled heat treatment for materials
                   in various applications.
                 </p>
-                {/* <Link className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
-                to="/melt-flow-tester" 
-                >Read More</Link> */}
+                <Link className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
+                to="/hot-air-oven" 
+                >Read More</Link>
               </div>
             </div>
 
@@ -596,15 +598,15 @@ const TestingFacilities = () => {
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70"></div>
               <div className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
                 <h1 className="font-dmserif text-3xl font-bold text-white">
-                  Tool Maker’s Microscope
+                  Tool Maker's Microscope
                 </h1>
                 <p className="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  Tool Maker’s Microscope: Enables detailed inspection and
-                  measurement of tooling components.
+                  The Mitutoyo TM Series is a toolmaker&#39;s microscope well suited for measuring dimensions
+                  and angles of machined metals.
                 </p>
-                {/* <Link className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
-                to="/melt-flow-tester" 
-                >Read More</Link> */}
+                <Link className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
+                to="/tool-maker-mcroscope" 
+                >Read More</Link>
               </div>
             </div>
 
@@ -622,12 +624,12 @@ const TestingFacilities = () => {
                   FLIR Infrared Thermometer
                 </h1>
                 <p className="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  FLIR Infrared Thermometer: Measures surface temperatures
-                  accurately using infrared technology.
+                  The FLIR helps you visualize the hot and cold spots that can indicate electrical faults,
+                  mechanical break-downs, or air and water leaks.
                 </p>
-                {/* <Link className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
-                to="/melt-flow-tester" 
-                >Read More</Link> */}
+                <Link className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
+                to="/flir-thermometer"
+                >Read More</Link>
               </div>
             </div>
 
@@ -645,12 +647,11 @@ const TestingFacilities = () => {
                   Vibratory Finishing Machine
                 </h1>
                 <p className="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  Vibratory Finishing Machine: Achieves surface finishing of
-                  materials through vibratory agitation.
+                  Vibratory Finishing Machine: It is used for drying and finishing different industrial materials and machinery parts.
                 </p>
-                {/* <Link className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
-                to="/melt-flow-tester" 
-                >Read More</Link> */}
+                <Link className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
+                to="/vibratory-finishing-machine" 
+                >Read More</Link>
               </div>
             </div>
 
@@ -668,15 +669,15 @@ const TestingFacilities = () => {
                   Metallographic Hot Mounting Press
                 </h1>
                 <p className="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  Metallographic Hot Mounting Press: Prepares metallurgical
-                  samples for analysis through hot mounting.
+                Specimen Hot Mounting Machine is a mechanical type machine. By turning the hand-wheel
+                of the machine, a couple of bevel gear is rotated.
                 </p>
-                {/* <Link className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
-                to="/melt-flow-tester" 
-                >Read More</Link> */}
+                <Link className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
+                to="/metallographic-hot-mounting-press" 
+                >Read More</Link>
               </div>
             </div>
-
+            {/* // */}
             {/* <div className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
               <div className="h-96 w-72">
                 <img
@@ -699,6 +700,8 @@ const TestingFacilities = () => {
                 >Read More</Link>
               </div>
             </div> */}
+
+            {/* // */}
 
             {/* <div className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
               <div className="h-96 w-72">
@@ -734,14 +737,14 @@ const TestingFacilities = () => {
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70"></div>
               <div className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
                 <h1 className="font-dmserif text-3xl font-bold text-white">
-                  Inverted Metallurgical Microscope
+                  Metallurgical Sample Saw
                 </h1>
                 <p className="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  Inverted Metallurgical Microscope: Inspects metallurgical
-                  samples with magnification from beneath.
+                  The MS 10 metallurgical sample saw is a table top instrument that can effectively be used for
+                  sample preparation in situations. 
                 </p>
                 <Link className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
-                to="/melt-flow-tester" 
+                to="/metallurgical-sample-saw" 
                 >Read More</Link>
               </div>
             </div> */}
@@ -806,12 +809,12 @@ const TestingFacilities = () => {
                   Digital Micrometer
                 </h1>
                 <p className="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  Digital Micrometer: Measures dimensions with high precision
-                  using digital technology.
+                  A digital micrometer is a precise measuring instrument used to determine the dimensions of
+                  small objects with high accuracy.
                 </p>
-                {/* <Link className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
-                to="/melt-flow-tester" 
-                >Read More</Link> */}
+                <Link className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
+                to="/digital-micrometer"  
+                >Read More</Link>
               </div>
             </div>
 
@@ -829,12 +832,12 @@ const TestingFacilities = () => {
                   Digital Vernier Caliper
                 </h1>
                 <p className="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  Digital Vernier Caliper: Measures dimensions accurately with
-                  digital readout for engineering applications.
+                  A digital Vernier caliper is a precise measuring instrument used to determine the dimensions
+                  of small objects with high accuracy.
                 </p>
-                {/* <Link className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
-                to="/melt-flow-tester" 
-                >Read More</Link> */}
+                <Link className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
+                to="/digital-vernier-caliper"  
+                >Read More</Link>
               </div>
             </div>
 
@@ -852,12 +855,12 @@ const TestingFacilities = () => {
                   Pedestal Grinder
                 </h1>
                 <p className="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  Pedestal Grinder: Sharpens and shapes tools and materials
-                  using grinding wheels mounted on a pedestal.
+                  A pedestal grinder is a type of grinding machine that is mounted on a pedestal, either bolted
+                  to the floor or resting on rubber feet.
                 </p>
-                {/* <Link className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
-                to="/melt-flow-tester" 
-                >Read More</Link> */}
+                <Link className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
+                to="/pedestal-grinder" 
+                >Read More</Link>
               </div>
             </div>
 

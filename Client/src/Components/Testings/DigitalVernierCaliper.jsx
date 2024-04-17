@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-export default function DSC() {
+function DigitalVernierCaliper() {
   return (
     <>
       <div
@@ -14,7 +14,7 @@ export default function DSC() {
       >
         <div className="text-center mt-5">
           <h1 className="text-3xl md:text-5xl lg:text-7xl text-white mt-16 font-medium mb-0">
-            Differential Scanning Calorimetry (DSC)
+            Digital Vernier Caliper
           </h1>
         </div>
       </div>
@@ -22,7 +22,7 @@ export default function DSC() {
       <div className="w-full flex flex-col items-center" id="about-page">
         {/* <!-- Container for image --> */}
         <div className="flex items-center justify-center mt-8">
-          <img src="/dsc.jpg" alt="MRLogo" className="max-w-full h-auto" />
+          <img src="/Digital-Vernier-Caliper.jpg" alt="MRLogo" className="max-w-full h-auto" />
         </div>
 
         {/* <!-- Content section --> */}
@@ -30,17 +30,16 @@ export default function DSC() {
           {/* <!-- Heading --> */}
           <div className="lg:mr-4 py-2 lg:py-0">
             <h4 className="text-2xl md:text-3xl lg:text-4xl text-red-600 mb-8 mt-4 lg:mt-0 font-medium text-center">
-              Differential Scanning Calorimetry (DSC)
+                Digital Vernier Caliper
             </h4>
           </div>
 
           {/* <!-- Paragraph --> */}
           <div className="mt-4 text-center lg:mt-0">
             <p className="text-justify font-medium mx-16 mb-4 lg:mb-16">
-              Differential scanning calorimetry (DSC) is the most frequently
-              used thermal analysis technique. DSC measures enthalpy changes in
-              samples due to changes in their physical and chemical properties
-              as a function of temperature or time.
+                A digital Vernier caliper is a precise measuring instrument used to determine the dimensions
+                of small objects with high accuracy. It's specifically used to find the length of the objects or
+                their thickness.
             </p>
           </div>
 
@@ -64,39 +63,19 @@ export default function DSC() {
                 <tbody>
                   <tr>
                     <td className="border border-gray-400 px-4 py-2">Model</td>
-                    <td className="border border-gray-400 px-4 py-2">STARE 3 System DSC 3</td>
+                    <td className="border border-gray-400 px-4 py-2">Series 500</td>
                   </tr>
                   <tr>
-                    <td className="border border-gray-400 px-4 py-2">Temperature range</td>
-                    <td className="border border-gray-400 px-4 py-2">-150 to 700 °C</td>
+                    <td className="border border-gray-400 px-4 py-2">Range</td>
+                    <td className="border border-gray-400 px-4 py-2">0-150 mm</td>
                   </tr>
                   <tr>
-                    <td className="border border-gray-400 px-4 py-2">Sensor</td>
-                    <td className="border border-gray-400 px-4 py-2">FRS 5+ with 56 thermocouples or HSS 8+ with 120 thermocouples</td>
+                    <td className="border border-gray-400 px-4 py-2">Resolution</td>
+                    <td className="border border-gray-400 px-4 py-2">0.01 mm</td>
                   </tr>
                   <tr>
-                    <td className="border border-gray-400 px-4 py-2">Heating Rate</td>
-                    <td className="border border-gray-400 px-4 py-2">0.02 to 300 K/min</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-400 px-4 py-2">TAWN Resolution (FRS /HSS)</td>
-                    <td className="border border-gray-400 px-4 py-2">0.12/0.2</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-400 px-4 py-2">TAWN Sensitivity (FRS /HSS)</td>
-                    <td className="border border-gray-400 px-4 py-2">11.9/56</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-400 px-4 py-2">Indium response ratio (FRS sensor)</td>
-                    <td className="border border-gray-400 px-4 py-2">&gt;155 mW/°C</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-400 px-4 py-2">Material Number(s)</td>
-                    <td className="border border-gray-400 px-4 py-2">30139229</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-400 px-4 py-2">Trade Name</td>
-                    <td className="border border-gray-400 px-4 py-2">DSC</td>
+                    <td className="border border-gray-400 px-4 py-2">Maximum permissible error</td>
+                    <td className="border border-gray-400 px-4 py-2">+- 0.2 -0.4 mm</td>
                   </tr>
                 </tbody>
               </table>
@@ -105,5 +84,7 @@ export default function DSC() {
         </div>
       </div>
     </>
-  );
+  )
 }
+
+export default DigitalVernierCaliper
